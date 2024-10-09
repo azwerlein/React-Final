@@ -40,8 +40,8 @@ function App() {
   latestCountries.current = countries;
   // const apiEndpoint = "https://medalsapi.azurewebsites.net/api/country";
   // https://olympicmedalsapi1-dwf3afc6a2ceh4bn.northcentralus-01.azurewebsites.net/
-  const apiEndpoint = "https://medalsapi.azurewebsites.net/jwtapi/country";
-  const hubEndpoint = "https://medalsapi.azurewebsites.net/medalsHub";
+  const apiEndpoint = "https://olympicmedalsapi2-h0bpfjhadbdxh6f8.northcentralus-01.azurewebsites.net/jwtapi/country";
+  const hubEndpoint = "https://olympicmedalsapi2-h0bpfjhadbdxh6f8.northcentralus-01.azurewebsites.net/medalsHub";
   const userEndpoint = "https://jwtswagger.azurewebsites.net/api/user/login";
 
   async function handleAdd(name) {
