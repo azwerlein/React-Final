@@ -39,8 +39,9 @@ function App() {
   // this is needed to access state variable in useEffect w/o dependency
   latestCountries.current = countries;
   // const apiEndpoint = "https://medalsapi.azurewebsites.net/api/country";
-  const apiEndpoint = "https://olympicmedalsapi1-dwf3afc6a2ceh4bn.northcentralus-01.azurewebsites.net/jwtapi/country";
-  const hubEndpoint = "https://olympicmedalsapi1-dwf3afc6a2ceh4bn.northcentralus-01.net/medalsHub";
+  // https://olympicmedalsapi1-dwf3afc6a2ceh4bn.northcentralus-01.azurewebsites.net/
+  const apiEndpoint = "https://medalsapi.azurewebsites.net/jwtapi/country";
+  const hubEndpoint = "https://medalsapi.azurewebsites.net/medalsHub";
   const userEndpoint = "https://jwtswagger.azurewebsites.net/api/user/login";
 
   async function handleAdd(name) {
