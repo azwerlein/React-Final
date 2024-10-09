@@ -35,7 +35,7 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         name: page
-        path: build
+        path: dist
         if-no-files-found: error
 
 
@@ -65,4 +65,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        
