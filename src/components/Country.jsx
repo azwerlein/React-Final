@@ -1,9 +1,11 @@
 import * as React from "react";
 import Medal from "./Medal";
-import { Box, Table, Flex, Badge, Button } from "@radix-ui/themes";
+import { Box, Table, Flex, Badge, Button, Dialog } from "@radix-ui/themes";
 import { TrashIcon, CheckIcon, ResetIcon } from "@radix-ui/react-icons";
 
 function Country(props) {
+  const [open, setOpen] = React.useState(false);
+
   function getMedalsTotal() {
     let sum = 0;
     // use medal count displayed in the web page for medal count totals
@@ -24,6 +26,10 @@ function Country(props) {
       }
     });
     return unsaved;
+  }
+
+  function confirmDelete() {
+    props.onDelete(props.country.id);
   }
 
   return (
@@ -69,15 +75,10 @@ function Country(props) {
                   {props.canDelete && (
                     <Button color="red" variant="ghost" size="1">
                       <TrashIcon
-                        onClick={() => props.onDelete(props.country.id)}
+                        onClick={() => setOpen(true)}
                       />
                     </Button>
                   )}
-                  <Button color="red" variant="ghost" size="1">
-                    <TrashIcon
-                      onClick={() => props.onDelete(props.country.id)}
-                    />
-                  </Button>
                 </div>
               </Flex>
             </Table.ColumnHeaderCell>
@@ -99,6 +100,26 @@ function Country(props) {
             ))}
         </Table.Body>
       </Table.Root>
+      <Dialog.Root open={open} onOpenChange={setOpen}>
+        <Dialog.Content maxWidth="450px">
+          <Dialog.Title>Add Country</Dialog.Title>
+          <Dialog.Description size="2" mb="4">
+            Are you sure you would like to delete {props.country.name}?
+          </Dialog.Description>
+          <Flex gap="3" mt="4" justify="end">
+            <Dialog.Close>
+              <Button variant="soft" color="gray" onClick={(e) => setOpen(false)}>
+                Cancel
+              </Button>
+            </Dialog.Close>
+            <Dialog.Close>
+              <Button color="red" onClick={confirmDelete}>
+                Delete
+              </Button>
+            </Dialog.Close>
+          </Flex>
+        </Dialog.Content>
+      </Dialog.Root>
     </Box>
   );
 }
